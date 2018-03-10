@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <title>Editable Table</title>
+    <link rel="shortcut icon" href="../static/imgs/sjsfavicon.ico">
+  <!--data table-->
+  {% block css %}
+  {% endblock %}
+
+
+</head>
+
+<body >
+        <!--body wrapper start-->
+        <div class="wrapper">
+             <div class="row">
+                <div class="col-sm-12">
+                <section class="panel">
+
+                <div class="panel-body">
+                <div class="adv-table editable-table ">
+                <div class="space15"></div>
+                {% block table %}
+                {% endblock %}
+                </div>
+                </div>
+                </section>
+                </div>
+                </div>
+        </div>
+        <!--body wrapper end-->
+  {% block js %}
+  {% endblock %}
+<script src="{{url_for('static', filename='js/adminex/jquery-1.10.2.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/adminex/jquery-migrate-1.2.1.min.js')}}"></script>
+
+<!--data table-->
+<script type="text/javascript" src="{{url_for('static', filename='js/adminex/jquery.dataTables.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/adminex/DT_bootstrap.js')}}"></script>
+
+<!--common scripts for all pages-->
+<script src="{{url_for('static', filename='js/adminex/scripts.js')}}"></script>
+
+<!--script for editable table-->
+
+
+<!-- END JAVASCRIPTS -->
+<script>
+
+    jQuery(document).ready(function() {
+        EditableTable.init();
+    });
+
+</script>
+
+</body>
+</html>

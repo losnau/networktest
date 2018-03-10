@@ -1,0 +1,41 @@
+{% extends "tables/basic_table.html" %}
+  {% block css %}
+  <link rel="stylesheet" href="{{url_for('static', filename='js/adminex/DT_bootstrap.css')}}" />
+  <link href="{{url_for('static', filename='js/adminex/style.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
+  {% endblock %}
+
+{% block table %}
+    <table class="table table-striped table-hover table-bordered" id="sourceaudit_table">
+    <thead>
+    <tr>
+        <th>数据源名称</th>
+        <th>地址</th>
+        <th>端口</th>
+        <th>执行方式</th>
+        <th>执行人</th>
+        <th>执行时间</th>
+        <th>执行状态</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for data in data_all %}
+<tr class="">
+    <td >{{data[0]}}</td>
+    <td >{{data[1]}}</td>
+    <td >{{data[2]}}</td>
+    <td >{{data[3]}}</td>
+    <td >{{data[4]}}</td>
+    <td >{{data[5]}}</td>
+    <td >{{data[6]}}</td>
+    </tr>
+{% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
+
+{% block js %}
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="{{url_for('static', filename='js/adminex/sourceaudit-table.js')}}"></script>
+<script src="{{ url_for('static', filename='js/plugins/sweetalert/sweetalert.min.js') }}"></script>
+{% endblock %}

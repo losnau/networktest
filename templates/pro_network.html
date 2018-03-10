@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> PRO网络测试</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="../../static/imgs/sjsfavicon.ico">
+    <link href="{{url_for('static', filename='css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
+</head>
+
+<body class="gray-bg">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="wrapper wrapper-content">
+                <div class="row animated fadeInRight">
+                    <div class="col-sm-12">
+                        <div class="ibox float-e-margins">
+                            <div class="text-center float-e-margins p-md">
+                                <span>样式切换：</span>
+                                <a href="#" class="btn btn-xs btn-primary" id="lightVersion">浅色</a>
+                                <a href="#" class="btn btn-xs btn-primary" id="darkVersion">深色</a>
+                                <a href="#" class="btn btn-xs btn-primary" id="leftVersion">布局切换</a>
+                            </div>
+                            <div class="" id="ibox-content">
+
+                                <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+                                    <div class="vertical-timeline-block">
+                                        <div class="vertical-timeline-icon navy-bg">
+                                            <i class="fa fa-laptop"></i>
+                                        </div>
+                                        <div class="vertical-timeline-content">
+                                            <input type="hidden" value="request">
+                                            <h2>URL网络测试</h2>
+                                            <span>使用Python的requests模块，<font style="color:#F00">get</font>方法模拟客户访问<font style="color:#F00">https://103.243.255.241:9443/queryData/</font>
+                                            </span></br>
+                                            <a href="#" class="btn btn-sm btn-primary excuted" id="request"> URL</a>
+                                        </div>
+                                    </div>
+                                    <div class="vertical-timeline-block">
+                                        <div class="vertical-timeline-icon blue-bg">
+                                            <i class="fa fa-compass"></i>
+                                        </div>
+                                        <div class="vertical-timeline-content">
+                                            <input type="hidden" value="nc">
+                                            <h2>NC端口测试</h2>
+                                            <p>使用系统的<font style="color:#F00">nc</font>命令测试主机端口的连通性。</p>
+                                            <a href="#" class="btn btn-sm btn-success excuted" id="nc"> NC </a>
+                                        </div>
+                                    </div>
+                                    <div class="vertical-timeline-block">
+                                        <input type="hidden" value="ping">
+                                        <div class="vertical-timeline-icon lazur-bg">
+                                            <i class="fa fa-comments"></i>
+                                        </div>
+                                        <div class="vertical-timeline-content">
+                                            <h2>Ping网络测试</h2>
+                                            <p>使用命令<font style="color:#F00">ping</font>测试主机的网络连通性</p>
+                                            <a href="#" class="btn btn-sm btn-info excuted" id="ping">Ping</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 全局js -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugins/sweetalert/sweetalert.min.js') }}"></script>
+    <!--自定义js-->
+    <script src="{{ url_for('static', filename='js/pro_network.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+
+            // Local script for demo purpose only
+            $('#lightVersion').click(function (event) {
+                event.preventDefault()
+                $('#ibox-content').removeClass('ibox-content');
+                $('#vertical-timeline').removeClass('dark-timeline');
+                $('#vertical-timeline').addClass('light-timeline');
+            });
+
+            $('#darkVersion').click(function (event) {
+                event.preventDefault()
+                $('#ibox-content').addClass('ibox-content');
+                $('#vertical-timeline').removeClass('light-timeline');
+                $('#vertical-timeline').addClass('dark-timeline');
+            });
+
+            $('#leftVersion').click(function (event) {
+                event.preventDefault()
+                $('#vertical-timeline').toggleClass('center-orientation');
+            });
+        });
+    </script>
+</body>
+
+</html>

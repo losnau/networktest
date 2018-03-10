@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>测试模块</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon" href="../static/imgs/sjsfavicon.ico">
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/animate.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs" style="font-size:20px;">
+                                        <i class="fa fa-asterisk"></i>
+                                        <strong class="font-bold">SJS网络</strong>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="logo-element">hAdmin
+                        </div>
+                    </li>
+                    <li class="line dk"></li>
+                    <li>
+                         <a href="#"><i class="fa fa-hand-lizard-o"></i> <span class="nav-label">网络测试</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a class="J_menuItem" href="api/source/ping_telnet"><i class="fa fa-soundcloud"></i>数据源</a>
+                            </li>
+                            <li><a class="J_menuItem" href="api/prd/status"><i class="fa fa-soundcloud"></i>PRO</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="line dk"></li>
+                    <li>
+                         <a href="#"><i class="fa fa-smile-o"></i> <span class="nav-label">审计</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a class="J_menuItem" href="api/audit/source_see"><i class="fa fa-table"></i>数据源网络测试</a>
+                            </li>
+                            <li><a class="J_menuItem" href="api/audit/source_see"><i class="fa fa-users"></i>用户</a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% if is_superuser==1 %}
+                    <li class="line dk"></li>
+                    <li>
+                         <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a class="J_menuItem" href="api/user/manager"><i class="fa fa-comments-o"></i>用户管理</a>
+                            </li>
+                            <li><a class="J_menuItem" href="api/source/manager"><i class="fa fa-comments"></i>数据源管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                    <li class="line dk"></li>
+                    <li>
+                         <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">个人</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a class="J_menuItem" href="api/user/changepd"><i class="fa fa-comment-o"></i>修改密码</a>
+                            </li>
+                            <li><a href="api/user/logout"><i class="fa fa-fighter-jet"></i> <span class="nav-label">退出</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                 </ul>
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+          
+            <div class="row J_mainContent" id="content-main">
+                <iframe id="J_iframe" width="100%" height="100%" src="api/source/ping_telnet" frameborder="0" data-id="index_v1.html" seamless></iframe>
+            </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+
+    <!-- 全局js -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <!-- 自定义js -->
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/hAdmin.js') }}"></script>
+
+    <!-- 第三方插件 -->
+    <script src="{{ url_for('static', filename='js/plugins/pace/pace.min.js') }}"></script>
+
+</body>
+
+</html>
